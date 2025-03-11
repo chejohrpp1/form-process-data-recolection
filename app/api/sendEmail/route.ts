@@ -36,6 +36,7 @@ export async function POST(req: Request) {
       <h3>Procesos Clave</h3>
       <table border="1" cellpadding="5" cellspacing="0">
         <tr>
+          <th>Tipo de proceso</th>
           <th>Nombre del Proceso</th>
           <th>Descripción</th>
           <th>Periodicidad</th>
@@ -50,6 +51,7 @@ export async function POST(req: Request) {
           <td>${row[1]}</td>
           <td>${row[2]}</td>
           <td>${row[3]}</td>
+          <td>${row[4]}</td>
         </tr>
       `;
     });
@@ -58,8 +60,8 @@ export async function POST(req: Request) {
 
     const mailOptions = {
       from: process.env.EMAIL,
-      to: "sergioroherp@gmail.com",
-      subject: "Nuevo Formulario Enviado",
+      to: process.env.EMAIL_TO_SEND,
+      subject: "Formulario de Procesos enviado",
       html: htmlContent,
     };
 
