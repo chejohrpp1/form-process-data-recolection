@@ -23,7 +23,7 @@ export default function ActiveTableWrapper({ data }: TableProps) {
           name: "process_type",
           label: {
             options: [
-              { text: "clave", backgroundColor: "#4ddd3878" },
+              { text: "Clave", backgroundColor: "#4ddd3878" },
               { text: "Soporte", backgroundColor: "#92bff8" },
             ],
             canAddMoreOptions: false,

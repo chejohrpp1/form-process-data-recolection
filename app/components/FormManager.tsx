@@ -17,7 +17,7 @@ export const FormManager: React.FC<FormManagerProps> = ({ department }) => {
       "Periodicidad",
       "Áreas involucradas",
     ],
-    ["clave", "Proceso 1", "Descripcion 1", "Anual", "Todas"],
+    ["Clave", "Proceso 1", "Descripcion 1", "Anual", "Todas"],
   ];
   const [formData, setFormData] = useState({
     name: "",
