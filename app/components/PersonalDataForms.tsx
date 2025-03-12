@@ -10,10 +10,15 @@ interface FormData {
 
 interface HeaderFormsProps {
   formData: FormData;
-  handleChange: (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  handleChange: (
+    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => void;
 }
 
-export const PersonalDataForms: React.FC<HeaderFormsProps> = ({ formData, handleChange }) => {
+export const PersonalDataForms: React.FC<HeaderFormsProps> = ({
+  formData,
+  handleChange,
+}) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 w-full max-w-4xl">
       {/* Nombre */}
@@ -31,7 +36,9 @@ export const PersonalDataForms: React.FC<HeaderFormsProps> = ({ formData, handle
 
       {/* Email */}
       <div className="bg-white shadow-lg rounded-lg p-4">
-        <label className="text-gray-700 font-semibold">Email Institucional:</label>
+        <label className="text-gray-700 font-semibold">
+          Correo Institucional:
+        </label>
         <input
           type="email"
           name="email"
@@ -48,11 +55,14 @@ export const PersonalDataForms: React.FC<HeaderFormsProps> = ({ formData, handle
         <select
           name="department"
           value={formData.department}
+          disabled={true}
           onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white shadow-sm focus:border-teal-500 focus:ring focus:ring-teal-300 transition-all"
+          className="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white shadow-sm focus:border-teal-500 focus:ring focus:ring-teal-300 transition-all bg-gray-100 text-gray-400"
         >
           <option value="">Seleccione un departamento</option>
-          <option value="DER">DER</option>
+          <option value="DER">
+            Direccion de Estudios Económicos y de Riesgo
+          </option>
           <option value="ADMINISTRATION">ADMINISTRACIÓN</option>
           <option value="SUPERVISION">SUPERVISIÓN</option>
         </select>
@@ -75,9 +85,27 @@ export const PersonalDataForms: React.FC<HeaderFormsProps> = ({ formData, handle
           <option value="">Seleccione un puesto</option>
           {formData.department === "DER" && (
             <>
-              <option value="Risk Analyst">Analista de riesgos</option>
-              <option value="Reserves Analyst">Analista de Reservas</option>
-              <option value="Intern">Pasante</option>
+              <option value="Analista de investigación y desarrollo">
+                Analista de investigación y desarrollo
+              </option>
+              <option value="Analista de estudios y reservas">
+                Analista de estudios y reservas
+              </option>
+              <option value="Analista económico">Analista económico</option>
+              <option value="Analista de riesgos">Analista de riesgos</option>
+              <option value="Analista de normas y resoluciones">
+                Analista de normas y resoluciones
+              </option>
+              <option value="Analista de gestión del conocimiento">
+                Analista de gestión del conocimiento
+              </option>
+              <option value="Analista investigador">
+                Analista investigador
+              </option>
+              <option value="Director de estudios económicos y de riesgos">
+                Director de estudios económicos y de riesgos
+              </option>
+              <option value="Educador">Educador</option>
             </>
           )}
           {formData.department === "ADMINISTRATION" && (

@@ -23,9 +23,8 @@ export default function ActiveTableWrapper({ data }: TableProps) {
           name: "process_type",
           label: {
             options: [
-              { text: "Vital", backgroundColor: "#4ddd3878" },
-              { text: "Soporte", backgroundColor: "#ff606082" },
-              { text: "otro", backgroundColor: "#ff940f8f" },
+              { text: "clave", backgroundColor: "#4ddd3878" },
+              { text: "Soporte", backgroundColor: "#92bff8" },
             ],
             canAddMoreOptions: false,
           },
@@ -36,8 +35,8 @@ export default function ActiveTableWrapper({ data }: TableProps) {
         {
           name: "periodicity",
           select: {
-            options: ["Diario", "Semanal", "Quincenal", "Mensual", "Trimestral", "Semestral", "Anual"],
-            canAddMoreOptions: true
+            options: ["Diario", "Semanal", "Quincenal", "Mensual", "Trimestral", "Semestral", "Anual", "Otro"],
+            canAddMoreOptions: false
           },
           iconSettings : {
             reusableIconName: "Select"

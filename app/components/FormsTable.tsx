@@ -7,7 +7,7 @@ interface FormsTableProps {
 
 export const FormsTable: React.FC<FormsTableProps> = ({ initialData }) => {
   return (
-    <div className="w-full overflow-x-auto text-center">
+    <div className="w-full text-center p-4">
       <ActiveTableWrapper data={initialData} />
     </div>
   )

@@ -4,7 +4,11 @@ import { PersonalDataForms } from "./PersonalDataForms";
 import { FormsTable } from "./FormsTable";
 import { toast, ToastContainer } from "react-toastify";
 
-export const FormManager = () => {
+interface FormManagerProps {
+  department: string;
+}
+
+export const FormManager: React.FC<FormManagerProps> = ({ department }) => {
   const data = [
     [
       "Tipo de proceso",
@@ -13,12 +17,12 @@ export const FormManager = () => {
       "Periodicidad",
       "Áreas involucradas",
     ],
-    ["Vital", "Proceso 1", "Descripcion 1", "Anual", "Todas"],
+    ["clave", "Proceso 1", "Descripcion 1", "Anual", "Todas"],
   ];
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    department: "",
+    department: department,
     position: "",
   });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -79,7 +83,7 @@ export const FormManager = () => {
             email: "",
             department: "",
             position: "",
-          })
+          });
           return result;
         }),
       {
@@ -93,6 +97,35 @@ export const FormManager = () => {
     <>
       <ToastContainer position="top-right" />
       <PersonalDataForms formData={formData} handleChange={handleChange} />
+      <div className="bg-white/70 backdrop-blur-sm p-6 rounded shadow-md mb-8 text-gray-700 max-w-3xl mx-auto">
+        <h2 className="text-xl font-semibold mb-4">
+          Información de los procesos
+        </h2>
+        <p className="mb-4">
+          En esta sección, se recopilará información detallada sobre los
+          procesos en los que participa. Para responder, es importante conocer
+          los siguientes conceptos:
+        </p>
+
+        <ul className="list-disc list-inside mb-4">
+          <li>
+            <strong>Procesos clave o macroprocesos:</strong> Contribuyen
+            directamente al cumplimiento de las funciones del Fondo de Garantía
+            MICOOPE, como supervisión, respaldo y garantía.
+          </li>
+          <li>
+            <strong>Procesos de soporte:</strong> Facilitan y respaldan la
+            ejecución de los procesos clave, siendo esenciales para el
+            funcionamiento institucional.
+          </li>
+        </ul>
+
+        <p className="mb-0">
+          Le pedimos responder con la mayor claridad posible para una mejor
+          comprensión y análisis de la información.
+        </p>
+      </div>
+
       <FormsTable initialData={data} />
       <div className="flex justify-center mt-4">
         <button

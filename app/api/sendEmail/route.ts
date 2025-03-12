@@ -10,7 +10,6 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     const { formData, tableData } = await req.json();
-    console.log(tableData)
 
     if (!formData) {
       return NextResponse.json({ success: false, message: "Faltan datos en la solicitud" }, { status: 400 });
